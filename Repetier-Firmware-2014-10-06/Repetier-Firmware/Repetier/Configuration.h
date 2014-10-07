@@ -127,13 +127,13 @@
 
 // ################ Endstop configuration #####################
 
-#define ENDSTOP_PULLUP_X_MIN true
+#define ENDSTOP_PULLUP_X_MIN false
 #define ENDSTOP_X_MIN_INVERTING true
 #define MIN_HARDWARE_ENDSTOP_X true
-#define ENDSTOP_PULLUP_Y_MIN true
+#define ENDSTOP_PULLUP_Y_MIN false
 #define ENDSTOP_Y_MIN_INVERTING true
 #define MIN_HARDWARE_ENDSTOP_Y true
-#define ENDSTOP_PULLUP_Z_MIN true
+#define ENDSTOP_PULLUP_Z_MIN false
 #define ENDSTOP_Z_MIN_INVERTING true
 #define MIN_HARDWARE_ENDSTOP_Z true
 #define ENDSTOP_PULLUP_X_MAX true
@@ -179,8 +179,8 @@
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR -1
-#define X_MAX_LENGTH 300
-#define Y_MAX_LENGTH 300
+#define X_MAX_LENGTH 195
+#define Y_MAX_LENGTH 265
 #define Z_MAX_LENGTH 120
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
