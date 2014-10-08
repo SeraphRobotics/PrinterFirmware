@@ -36,7 +36,7 @@
 
 */
 
-#define NUM_EXTRUDER 1
+#define NUM_EXTRUDER 2
 #define MOTHERBOARD 33
 
 #include "pins.h"
@@ -45,6 +45,7 @@
 // ################ END MANUAL SETTINGS ##########################
 
 #define FAN_BOARD_PIN -1
+#define Z_MAX_PIN ORIG_Z_MIN_PIN
 
 //#define EXTERNALSERIAL  use Arduino serial library instead of build in. Requires more ram, has only 63 byte input buffer.
 // Uncomment the following line if you are using arduino compatible firmware made for Arduino version earlier then 1.0
@@ -59,7 +60,7 @@
 #define EXTRUDER_FAN_COOL_TEMP 50
 #define EXT0_X_OFFSET 0
 #define EXT0_Y_OFFSET 0
-#define EXT0_STEPS_PER_MM 186.726//96.43 //1940
+#define EXT0_STEPS_PER_MM 18.6726
 #define EXT0_TEMPSENSOR_TYPE 1
 #define EXT0_TEMPSENSOR_PIN TEMP_0_PIN
 #define EXT0_HEATER_PIN HEATER_0_PIN
@@ -88,6 +89,37 @@
 #define EXT0_DESELECT_COMMANDS ""
 #define EXT0_EXTRUDER_COOLER_PIN -1
 #define EXT0_EXTRUDER_COOLER_SPEED 255
+#define EXT1_X_OFFSET 0
+#define EXT1_Y_OFFSET 0
+#define EXT1_STEPS_PER_MM 18.6726
+#define EXT1_TEMPSENSOR_TYPE 1
+#define EXT1_TEMPSENSOR_PIN TEMP_2_PIN
+#define EXT1_HEATER_PIN HEATER_2_PIN
+#define EXT1_STEP_PIN ORIG_E1_STEP_PIN
+#define EXT1_DIR_PIN ORIG_E1_DIR_PIN
+#define EXT1_INVERSE 0
+#define EXT1_ENABLE_PIN E1_ENABLE_PIN
+#define EXT1_ENABLE_ON 0
+#define EXT1_MAX_FEEDRATE 50
+#define EXT1_MAX_START_FEEDRATE 20
+#define EXT1_MAX_ACCELERATION 5000
+#define EXT1_HEAT_MANAGER 3
+#define EXT1_WATCHPERIOD 1
+#define EXT1_PID_INTEGRAL_DRIVE_MAX 230
+#define EXT1_PID_INTEGRAL_DRIVE_MIN 40
+#define EXT1_PID_P 7
+#define EXT1_PID_I 2
+#define EXT1_PID_D 40
+#define EXT1_PID_MAX 255
+#define EXT1_ADVANCE_K 0
+#define EXT1_ADVANCE_L 0
+#define EXT1_ADVANCE_BACKLASH_STEPS 0
+#define EXT1_WAIT_RETRACT_TEMP 150
+#define EXT1_WAIT_RETRACT_UNITS 0
+#define EXT1_SELECT_COMMANDS ""
+#define EXT1_DESELECT_COMMANDS ""
+#define EXT1_EXTRUDER_COOLER_PIN -1
+#define EXT1_EXTRUDER_COOLER_SPEED 255
 #define RETRACT_DURING_HEATUP true
 #define PID_CONTROL_RANGE 20
 #define SKIP_M109_IF_WITHIN 2
@@ -127,15 +159,15 @@
 
 // ################ Endstop configuration #####################
 
-#define ENDSTOP_PULLUP_X_MIN false
+#define ENDSTOP_PULLUP_X_MIN true
 #define ENDSTOP_X_MIN_INVERTING true
 #define MIN_HARDWARE_ENDSTOP_X true
-#define ENDSTOP_PULLUP_Y_MIN false
+#define ENDSTOP_PULLUP_Y_MIN true
 #define ENDSTOP_Y_MIN_INVERTING true
 #define MIN_HARDWARE_ENDSTOP_Y true
 #define ENDSTOP_PULLUP_Z_MIN false
-#define ENDSTOP_Z_MIN_INVERTING true
-#define MIN_HARDWARE_ENDSTOP_Z true
+#define ENDSTOP_Z_MIN_INVERTING false
+#define MIN_HARDWARE_ENDSTOP_Z false
 #define ENDSTOP_PULLUP_X_MAX true
 #define ENDSTOP_X_MAX_INVERTING false
 #define MAX_HARDWARE_ENDSTOP_X false
@@ -143,16 +175,16 @@
 #define ENDSTOP_Y_MAX_INVERTING false
 #define MAX_HARDWARE_ENDSTOP_Y false
 #define ENDSTOP_PULLUP_Z_MAX true
-#define ENDSTOP_Z_MAX_INVERTING false
-#define MAX_HARDWARE_ENDSTOP_Z false
+#define ENDSTOP_Z_MAX_INVERTING true
+#define MAX_HARDWARE_ENDSTOP_Z true
 #define max_software_endstop_r true
 
 #define min_software_endstop_x false
 #define min_software_endstop_y false
-#define min_software_endstop_z false
+#define min_software_endstop_z true
 #define max_software_endstop_x true
 #define max_software_endstop_y true
-#define max_software_endstop_z true
+#define max_software_endstop_z false
 #define ENDSTOP_X_BACK_MOVE 5
 #define ENDSTOP_Y_BACK_MOVE 5
 #define ENDSTOP_Z_BACK_MOVE 2
@@ -175,13 +207,13 @@
 #define DISABLE_E 0
 #define INVERT_X_DIR 0
 #define INVERT_Y_DIR 0
-#define INVERT_Z_DIR 0
+#define INVERT_Z_DIR 1
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
-#define Z_HOME_DIR -1
+#define Z_HOME_DIR 1
 #define X_MAX_LENGTH 195
-#define Y_MAX_LENGTH 265
-#define Z_MAX_LENGTH 120
+#define Y_MAX_LENGTH 266
+#define Z_MAX_LENGTH 72
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
@@ -349,7 +381,7 @@ Values must be in range 1..255
 
 ========== Start configuration string ==========
 {
-    "editMode": 2,
+    "editMode": 1,
     "processor": 0,
     "baudrate": 115200,
     "xStepsPerMM": 165,
@@ -360,7 +392,7 @@ Values must be in range 1..255
     "eepromMode": 1,
     "yInvert": 0,
     "yInvertEnable": 0,
-    "zInvert": 0,
+    "zInvert": "1",
     "zInvertEnable": 0,
     "extruder": [
         {
@@ -386,7 +418,7 @@ Values must be in range 1..255
             "waitRetractTemp": 150,
             "waitRetractUnits": 0,
             "waitRetract": 0,
-            "stepsPerMM": 1940,
+            "stepsPerMM": 18.6726,
             "coolerPin": -1,
             "coolerSpeed": 255,
             "selectCommands": "",
@@ -402,16 +434,56 @@ Values must be in range 1..255
                 "enable": "E0_ENABLE_PIN"
             },
             "advanceBacklashSteps": 0
+        },
+        {
+            "id": 1,
+            "heatManager": 3,
+            "pidDriveMin": 40,
+            "pidDriveMax": 230,
+            "pidMax": 255,
+            "sensorType": 1,
+            "sensorPin": "TEMP_2_PIN",
+            "heaterPin": "HEATER_2_PIN",
+            "maxFeedrate": 50,
+            "startFeedrate": 20,
+            "invert": "0",
+            "invertEnable": "0",
+            "acceleration": 5000,
+            "watchPeriod": 1,
+            "pidP": 7,
+            "pidI": 2,
+            "pidD": 40,
+            "advanceK": 0,
+            "advanceL": 0,
+            "waitRetractTemp": 150,
+            "waitRetractUnits": 0,
+            "waitRetract": 0,
+            "stepsPerMM": 18.6726,
+            "coolerPin": -1,
+            "coolerSpeed": 255,
+            "selectCommands": "",
+            "deselectCommands": "",
+            "xOffset": 0,
+            "yOffset": 0,
+            "xOffsetSteps": 0,
+            "yOffsetSteps": 0,
+            "stepper": {
+                "name": "Extruder 1",
+                "step": "ORIG_E1_STEP_PIN",
+                "dir": "ORIG_E1_DIR_PIN",
+                "enable": "E1_ENABLE_PIN"
+            },
+            "advanceBacklashSteps": 0
         }
     ],
     "uiLanguage": 0,
     "uiController": 0,
     "xMinEndstop": 1,
     "yMinEndstop": 1,
-    "zMinEndstop": 1,
+    "zMinEndstop": 0,
     "xMaxEndstop": 0,
     "yMaxEndstop": 0,
-    "zMaxEndstop": 0,
+    "zMaxEndstop": 1,
     "motherboard": 33,
     "driveSystem": 1,
     "xMaxSpeed": 200,
@@ -453,9 +525,9 @@ Values must be in range 1..255
     "xMinPos": 0,
     "yMinPos": 0,
     "zMinPos": 0,
-    "xLength": 300,
-    "yLength": 300,
-    "zLength": 120,
+    "xLength": 195,
+    "yLength": 266,
+    "zLength": 72,
     "alwaysCheckEndstops": "1",
     "disableX": "0",
     "disableY": "0",
@@ -463,7 +535,7 @@ Values must be in range 1..255
     "disableE": "0",
     "xHomeDir": "-1",
     "yHomeDir": "-1",
-    "zHomeDir": "-1",
+    "zHomeDir": "1",
     "xEndstopBack": 1,
     "yEndstopBack": 1,
     "zEndstopBack": 0,
@@ -668,7 +740,7 @@ Values must be in range 1..255
     "zMinPin": "ORIG_Z_MIN_PIN",
     "xMaxPin": "ORIG_X_MAX_PIN",
     "yMaxPin": "ORIG_Y_MAX_PIN",
-    "zMaxPin": "ORIG_Z_MAX_PIN",
+    "zMaxPin": "ORIG_Z_MIN_PIN",
     "deltaHomeOnPower": "0",
     "fanBoardPin": -1,
     "heaterPWMSpeed": 0,
@@ -682,7 +754,7 @@ Values must be in range 1..255
     "hasUser0": false,
     "hasUser1": false,
     "hasUser2": false,
-    "numExtruder": 1,
+    "numExtruder": 2,
     "version": 91.7
 }
 ========== End configuration string ==========
