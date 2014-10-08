@@ -45,6 +45,7 @@
 // ################ END MANUAL SETTINGS ##########################
 
 #define FAN_BOARD_PIN -1
+#define Z_MAX_PIN ORIG_Z_MIN_PIN
 
 //#define EXTERNALSERIAL  use Arduino serial library instead of build in. Requires more ram, has only 63 byte input buffer.
 // Uncomment the following line if you are using arduino compatible firmware made for Arduino version earlier then 1.0
@@ -59,7 +60,7 @@
 #define EXTRUDER_FAN_COOL_TEMP 50
 #define EXT0_X_OFFSET 0
 #define EXT0_Y_OFFSET 0
-#define EXT0_STEPS_PER_MM 186.726//96.43 //1940
+#define EXT0_STEPS_PER_MM 18.6726
 #define EXT0_TEMPSENSOR_TYPE 1
 #define EXT0_TEMPSENSOR_PIN TEMP_0_PIN
 #define EXT0_HEATER_PIN HEATER_0_PIN
@@ -133,7 +134,7 @@
 #define ENDSTOP_PULLUP_Y_MIN true
 #define ENDSTOP_Y_MIN_INVERTING true
 #define MIN_HARDWARE_ENDSTOP_Y true
-#define ENDSTOP_PULLUP_Z_MIN false
+#define ENDSTOP_PULLUP_Z_MIN true
 #define ENDSTOP_Z_MIN_INVERTING false
 #define MIN_HARDWARE_ENDSTOP_Z false
 #define ENDSTOP_PULLUP_X_MAX true
@@ -178,10 +179,10 @@
 #define INVERT_Z_DIR 1
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
-#define Z_HOME_DIR -1
+#define Z_HOME_DIR 1
 #define X_MAX_LENGTH 195
-#define Y_MAX_LENGTH 265
-#define Z_MAX_LENGTH 120
+#define Y_MAX_LENGTH 266
+#define Z_MAX_LENGTH 72
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
@@ -349,7 +350,7 @@ Values must be in range 1..255
 
 ========== Start configuration string ==========
 {
-    "editMode": 2,
+    "editMode": 1,
     "processor": 0,
     "baudrate": 115200,
     "xStepsPerMM": 165,
@@ -360,7 +361,7 @@ Values must be in range 1..255
     "eepromMode": 1,
     "yInvert": 0,
     "yInvertEnable": 0,
-    "zInvert": 0,
+    "zInvert": "1",
     "zInvertEnable": 0,
     "extruder": [
         {
@@ -386,7 +387,7 @@ Values must be in range 1..255
             "waitRetractTemp": 150,
             "waitRetractUnits": 0,
             "waitRetract": 0,
-            "stepsPerMM": 1940,
+            "stepsPerMM": 18.6726,
             "coolerPin": -1,
             "coolerSpeed": 255,
             "selectCommands": "",
@@ -408,10 +409,10 @@ Values must be in range 1..255
     "uiController": 0,
     "xMinEndstop": 1,
     "yMinEndstop": 1,
-    "zMinEndstop": 1,
+    "zMinEndstop": 0,
     "xMaxEndstop": 0,
     "yMaxEndstop": 0,
-    "zMaxEndstop": 0,
+    "zMaxEndstop": 1,
     "motherboard": 33,
     "driveSystem": 1,
     "xMaxSpeed": 200,
@@ -453,9 +454,9 @@ Values must be in range 1..255
     "xMinPos": 0,
     "yMinPos": 0,
     "zMinPos": 0,
-    "xLength": 300,
-    "yLength": 300,
-    "zLength": 120,
+    "xLength": 195,
+    "yLength": 266,
+    "zLength": 72,
     "alwaysCheckEndstops": "1",
     "disableX": "0",
     "disableY": "0",
@@ -463,7 +464,7 @@ Values must be in range 1..255
     "disableE": "0",
     "xHomeDir": "-1",
     "yHomeDir": "-1",
-    "zHomeDir": "-1",
+    "zHomeDir": "1",
     "xEndstopBack": 1,
     "yEndstopBack": 1,
     "zEndstopBack": 0,
@@ -668,7 +669,7 @@ Values must be in range 1..255
     "zMinPin": "ORIG_Z_MIN_PIN",
     "xMaxPin": "ORIG_X_MAX_PIN",
     "yMaxPin": "ORIG_Y_MAX_PIN",
-    "zMaxPin": "ORIG_Z_MAX_PIN",
+    "zMaxPin": "ORIG_Z_MIN_PIN",
     "deltaHomeOnPower": "0",
     "fanBoardPin": -1,
     "heaterPWMSpeed": 0,
