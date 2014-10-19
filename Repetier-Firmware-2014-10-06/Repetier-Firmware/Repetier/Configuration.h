@@ -60,7 +60,7 @@
 #define EXTRUDER_FAN_COOL_TEMP 50
 #define EXT0_X_OFFSET 0
 #define EXT0_Y_OFFSET 0
-#define EXT0_STEPS_PER_MM 4.8124 //18.6726
+#define EXT0_STEPS_PER_MM 18.6726 //0.12//4.8124 //18.6726
 #define EXT0_TEMPSENSOR_TYPE 1
 #define EXT0_TEMPSENSOR_PIN TEMP_0_PIN
 #define EXT0_HEATER_PIN HEATER_0_PIN
@@ -150,7 +150,7 @@
 
 #define min_software_endstop_x false
 #define min_software_endstop_y false
-#define min_software_endstop_z true
+#define min_software_endstop_z false
 #define max_software_endstop_x true
 #define max_software_endstop_y true
 #define max_software_endstop_z false
