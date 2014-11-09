@@ -54,8 +54,8 @@
 
 
 #define DRIVE_SYSTEM 1
-#define XAXIS_STEPS_PER_MM 165
-#define YAXIS_STEPS_PER_MM 165
+#define XAXIS_STEPS_PER_MM 161
+#define YAXIS_STEPS_PER_MM 161
 #define ZAXIS_STEPS_PER_MM 2390
 #define EXTRUDER_FAN_COOL_TEMP 50
 #define EXT0_X_OFFSET 0
@@ -256,7 +256,7 @@
 #define ACK_WITH_LINENUMBER
 #define WAITING_IDENTIFIER "wait"
 #define ECHO_ON_EXECUTE
-#define EEPROM_MODE 1
+#define EEPROM_MODE 0
 
 /* ======== Servos =======
 Control the servos with
