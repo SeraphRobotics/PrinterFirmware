@@ -56,7 +56,7 @@
 #define DRIVE_SYSTEM 1
 #define XAXIS_STEPS_PER_MM 179
 #define YAXIS_STEPS_PER_MM 179
-#define ZAXIS_STEPS_PER_MM 2390
+#define ZAXIS_STEPS_PER_MM 1904
 #define EXTRUDER_FAN_COOL_TEMP 50
 #define EXT0_X_OFFSET 0
 #define EXT0_Y_OFFSET 0
@@ -180,7 +180,7 @@
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR 1
-#define X_MAX_LENGTH 195
+#define X_MAX_LENGTH 157
 #define Y_MAX_LENGTH 266
 #define Z_MAX_LENGTH 72
 #define X_MIN_POS 0
