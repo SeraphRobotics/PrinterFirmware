@@ -223,7 +223,7 @@
 
 #define min_software_endstop_x false
 #define min_software_endstop_y false
-#define min_software_endstop_z true
+#define min_software_endstop_z false
 #define max_software_endstop_x true
 #define max_software_endstop_y true
 #define max_software_endstop_z false
